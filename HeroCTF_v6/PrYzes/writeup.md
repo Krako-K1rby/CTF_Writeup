@@ -63,11 +63,11 @@ URL: http://web.heroctf.fr:5000/
 </script>
 ```
 
-そして、ボタンを押したときに呼ばれるsend_request関数では、現在の年月日をjson形式にしたものとそのjsonをSHA256でハッシュ化したものを\
+そして、ボタンを押したときに呼ばれるsend_request関数では、現在の年月日をjson形式にしてそれをSHA256でハッシュ化した値を\
 X-Signatureとしてヘッダーに追加し、/api/prizesにPOSTリクエストを送信しています。
 
 
-また、このwebページの動作は与えられたapp.pyに記述されています。\
+また、webサーバの動作は与えられたapp.pyに記述されています。\
 注目するべき箇所は/api/prizesにPOSTメソッドでリクエストを送った際の動作です。
 
 #### app.py
