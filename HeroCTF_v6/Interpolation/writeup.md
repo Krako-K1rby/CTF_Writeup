@@ -101,7 +101,38 @@ else:
 ### solver.sage
 
 ```python
+#!/usr/bin/sage
+import hashlib
+import itertools
+import string
 
+with open('points.txt', 'r') as f:
+    points = eval(f.read())
+
+F = FiniteField(2**256 - 189)
+R = PolynomialRing(F, "x")
+
+points.append([0, int(hashlib.sha256(b'Hero').hexdigest(), 16)])
+
+f = R.lagrange_polynomial(points)
+
+characters = string.ascii_lowercase + string.ascii_uppercase + string.digits + '_{}'
+
+combinations = [''.join(comb) for comb in itertools.product(characters, repeat=4)]
+
+hash_list = []
+for comb in combinations:
+    hash_list.append([comb, int(hashlib.sha256(comb.encode()).hexdigest(), 16)])
+
+res = ""
+
+for coef in f.coefficients():
+    for s,h in hash_list:
+        if coef == h:
+            print(s)
+            res += s
+
+print(res)
 ```
 
 ## Flag
