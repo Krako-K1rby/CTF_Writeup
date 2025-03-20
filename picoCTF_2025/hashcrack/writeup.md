@@ -1,4 +1,4 @@
-# hashcrack (crypto) 100pt
+# hashcrack (crypto) Easy 100pt
 
 ## Question
 A company stored a secret message on a server which got breached due to the admin using weakly hashed passwords. Can you gain access to the secret stored within the server?
