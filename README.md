@@ -12,3 +12,4 @@
 
 ## 常設
 - DreamHack
+- picoCTF
